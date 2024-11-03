@@ -60,3 +60,9 @@ Retorna el puntaje final que puede alcanzar hasta 110 puntos en total, permitien
 
 ![image](https://github.com/user-attachments/assets/b23580d5-d4d9-40f1-8402-cb7d3f78f83e)
 
+
+Pruebas de escritorio
+
+A continuación se muentra un enlace de como se muestra el funcionamiento del componente personalizado:
+
+https://youtube.com/shorts/kqVHrMiW0zY?feature=share
