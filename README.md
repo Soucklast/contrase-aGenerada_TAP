@@ -1,7 +1,7 @@
-PasswordPanel - Panel de Generación y Seguridad de Contraseñas
+# PasswordPanel - Panel de Generación y Seguridad de Contraseñas
 PasswordPanel es un componente de Java Swing diseñado para crear y gestionar contraseñas con opciones de visibilidad, generación automática y evaluación de seguridad. Este panel incluye un campo de entrada para contraseñas, iconos interactivos para mostrar/ocultar el texto, generar una contraseña aleatoria y un indicador visual de la seguridad de la contraseña.
 
-Características principales
+## Características principales
 Campo de Contraseña: Usa JPasswordField para la entrada de contraseñas, con un tamaño predeterminado de 15 caracteres. Permite alternar entre la visibilidad y el modo oculto de la contraseña.
 
 Alternar Visibilidad de Contraseña: Usa un ícono que permite al usuario alternar entre ver y ocultar la contraseña mediante un clic.
@@ -10,7 +10,7 @@ Generación de Contraseñas Aleatorias: Incluye un generador de contraseñas que
 
 Evaluación de Seguridad de la Contraseña: Evalúa el nivel de seguridad de la contraseña y lo muestra visualmente mediante un mensaje de texto que cambia de color según el nivel de seguridad (baja, media o fuerte).
 
-Componentes del Código
+## Componentes del Código
 Configuración de Imágenes:
 
 ![image](https://github.com/user-attachments/assets/bf439d72-0b94-407e-b5e5-bfd867ebee87)
@@ -43,7 +43,7 @@ Etiqueta de Seguridad:
 Indica la seguridad de la contraseña (baja, media o fuerte) en función de un análisis de características como longitud y tipos de caracteres.
 
 
-Configuración y Métodos
+## Configuración y Métodos
 
 Configuración de Longitud de Contraseña (setLongitud): Define la longitud de la contraseña generada, con un valor predeterminado de 8 caracteres.
 
