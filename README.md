@@ -1,68 +1,83 @@
-La clase BotonesC en el archivo tiene una estructura de un componente de interfaz gráfica en Java, extendiendo JFrame,
-relacionado con la gestión de contraseñas. Aquí te explico el funcionamiento de los métodos que encontré hasta ahora:
+PasswordPanel - Panel de Generación y Seguridad de Contraseñas
+PasswordPanel es un componente de Java Swing diseñado para crear y gestionar contraseñas con opciones de visibilidad, generación automática y evaluación de seguridad. Este panel incluye un campo de entrada para contraseñas, iconos interactivos para mostrar/ocultar el texto, generar una contraseña aleatoria y un indicador visual de la seguridad de la contraseña.
 
-Constructor BotonesC():
-Este constructor inicializa los componentes de la interfaz gráfica con initComponents() y coloca la ventana en el centro de la pantalla con setLocationRelativeTo(null). Además, hace que un botón (probablemente para mostrar la contraseña) esté inicialmente oculto (OCULTAR.setVisible(false)). También, agrega un DocumentListener al campo de texto passwordField para actualizar el nivel de seguridad de la contraseña cada vez que se inserta, elimina o cambia el texto en ese campo.
-![image](https://github.com/user-attachments/assets/4874cfc0-a39e-4e3e-937a-b24780967bde)
+Características principales
+Campo de Contraseña: Usa JPasswordField para la entrada de contraseñas, con un tamaño predeterminado de 15 caracteres. Permite alternar entre la visibilidad y el modo oculto de la contraseña.
 
-DocumentListener: Este listener se asegura de que el nivel de seguridad de la contraseña se actualice en tiempo real cada vez que hay algún cambio en el campo de la contraseña. Implementa tres métodos:
-  
-insertUpdate(DocumentEvent e): Llama a updateSecurityLevel() cuando se inserta texto.
+Alternar Visibilidad de Contraseña: Usa un ícono que permite al usuario alternar entre ver y ocultar la contraseña mediante un clic.
 
-![image](https://github.com/user-attachments/assets/9dffdb8a-aaeb-4902-83b9-9c892a81ea2f)
+Generación de Contraseñas Aleatorias: Incluye un generador de contraseñas que permite especificar la longitud y los tipos de caracteres (mayúsculas, minúsculas, números y caracteres especiales).
 
-removeUpdate(DocumentEvent e): Llama a updateSecurityLevel() cuando se elimina texto.
+Evaluación de Seguridad de la Contraseña: Evalúa el nivel de seguridad de la contraseña y lo muestra visualmente mediante un mensaje de texto que cambia de color según el nivel de seguridad (baja, media o fuerte).
 
-![image](https://github.com/user-attachments/assets/8b575128-89b2-49e0-af75-3a25554578ca)
+Componentes del Código
+Configuración de Imágenes:
 
-changedUpdate(DocumentEvent e): Llama a updateSecurityLevel() cuando cambia algún atributo del texto.
+![image](https://github.com/user-attachments/assets/bf439d72-0b94-407e-b5e5-bfd867ebee87)
 
-![image](https://github.com/user-attachments/assets/64e126b4-a2c5-40f8-a834-a5e2d0c04041)
+Carga tres imágenes (mostrar, ocultar y generar) para los iconos de alternar visibilidad y generar contraseña.
 
+Campo de Contraseña (JPasswordField):
 
-Continuando con el análisis de los métodos:
+![image](https://github.com/user-attachments/assets/f9cdec7d-cbda-42f0-a3eb-5c61bba68002)
 
-updateSecurityLevel(): Este método es llamado por el DocumentListener cada vez que el usuario modifica la contraseña en el campo de entrada (passwordField). Su función es:
-![image](https://github.com/user-attachments/assets/5b54c8a5-2690-4a87-81ce-710895cb4e61)
+Usa JPasswordField para la entrada de la contraseña, con el texto oculto por asteriscos (*) de manera predeterminada.
+Añade un DocumentListener que actualiza el nivel de seguridad de la contraseña cada vez que se modifica el texto en el campo.
 
-Obtener el texto actual del campo de contraseña.
-Verificar si el campo está vacío: si lo está, el nivel de seguridad se establece en 0.
-Si contiene texto, llama al método Calculabarraseguridad(password) para calcular el nivel de seguridad.
-Actualiza la barra de progreso (securityBar) con el nivel de seguridad obtenido.
-initComponents(): Este método es generado automáticamente por el editor de interfaces de Java y configura los componentes visuales de la interfaz (por ejemplo, jPanel1, passwordField, VER, OCULTAR, jButton1). Configura el diseño y las propiedades iniciales de estos elementos.
-​​
+Icono de Alternar Visibilidad:
 
-Otros métodos adicionales en la clase incluyen los eventos de clic para los botones de ver y ocultar contraseña:
+![image](https://github.com/user-attachments/assets/69526f48-d474-4bc5-8603-e10a6d282636)
 
+Al hacer clic en este icono, se muestra o esconde el texto de la contraseña y se cambia la imagen entre "mostrar" y "ocultar".
 
-VERMouseClicked(java.awt.event.MouseEvent evt): Este método se ejecuta cuando el usuario hace clic en el botón de "VER". Generalmente, su propósito sería mostrar la contraseña ingresada en el campo (passwordField) y, posiblemente, ocultar el botón de "VER" mientras muestra el de "OCULTAR".
+Icono de Generación de Contraseña:
 
-![image](https://github.com/user-attachments/assets/dfb99b90-2ff4-4894-a0d9-4d83664e708d)
+![image](https://github.com/user-attachments/assets/dfbae89d-a4ed-4997-b69d-1d5dd3f80234)
 
-OCULTARMouseClicked(java.awt.event.MouseEvent evt): Similar al anterior, este método se activa al hacer clic en el botón de "OCULTAR". Cambia el campo de contraseña para que los caracteres se vuelvan a ocultar y probablemente intercambia la visibilidad de los botones, mostrando el botón de "VER" y ocultando el de "OCULTAR".
+Al hacer clic en este icono, se genera una nueva contraseña aleatoria en función de la configuración actual del tipo de caracteres y longitud.
 
-![image](https://github.com/user-attachments/assets/5aa40a55-6907-4c5e-95d5-a6780739ac73)
+Etiqueta de Seguridad:
 
-Estos métodos ayudan a alternar entre mostrar y ocultar la contraseña, lo cual mejora la experiencia del usuario al permitirle verificar la contraseña ingresada si lo desea.
+![image](https://github.com/user-attachments/assets/cb4ccf83-e1e2-42db-97bb-6b7875e61686)
 
-Por último, los métodos:
-Generarcontraseña(int length): Genera una contraseña aleatoria con una longitud específica (length). Define un conjunto de caracteres posibles, que incluye letras mayúsculas, minúsculas, dígitos y caracteres especiales. Usa SecureRandom para asegurar que los caracteres generados sean impredecibles. Itera hasta que la longitud deseada se complete. En cada iteración, selecciona un índice aleatorio en chars, agrega el carácter correspondiente al StringBuilder y, finalmente, devuelve la contraseña generada como cadena (String).
-
-![image](https://github.com/user-attachments/assets/0d790e96-0545-41f0-be3a-0c22a8db0424)
-
-Calculabarraseguridad(String password): Calcula un puntaje de seguridad de la contraseña en función de varios criterios. Inicializa el puntaje en 0 y verifica si la contraseña cumple con ciertos criterios:
-   *Si tiene una longitud mínima de 8 caracteres, añade 25 puntos.
-   *Si tiene más de 8 caracteres, suma 10 puntos adicionales.
-   *Si contiene al menos una letra mayúscula, añade otros 25 puntos.
-   *Si incluye un número, suma 25 puntos.
-   *Si tiene algún carácter especial (!@#$%^&*()), otorga 25 puntos.
-Retorna el puntaje final que puede alcanzar hasta 110 puntos en total, permitiendo establecer un nivel de seguridad.
-
-![image](https://github.com/user-attachments/assets/b23580d5-d4d9-40f1-8402-cb7d3f78f83e)
+Indica la seguridad de la contraseña (baja, media o fuerte) en función de un análisis de características como longitud y tipos de caracteres.
 
 
-Pruebas de escritorio
+Configuración y Métodos
 
-A continuación se muentra un enlace de como se muestra el funcionamiento del componente personalizado:
+Configuración de Longitud de Contraseña (setLongitud): Define la longitud de la contraseña generada, con un valor predeterminado de 8 caracteres.
 
-https://youtube.com/shorts/kqVHrMiW0zY?feature=share
+Selección de Tipos de Caracteres: Métodos setIncluirMayusculas, setIncluirMinusculas, setIncluirNumeros y setIncluirEspeciales para habilitar o deshabilitar cada tipo de carácter en la generación de contraseñas.
+
+
+![image](https://github.com/user-attachments/assets/1a282c71-6443-43ef-b4c1-6814c4486567)
+
+
+Alternar Visibilidad (togglePasswordVisibility):
+
+![image](https://github.com/user-attachments/assets/fcb2a6a4-e64d-4428-a584-b2d47ae46592)
+
+Muestra u oculta el texto de la contraseña según el estado actual.
+
+Generación de Contraseña Aleatoria (generatePassword):
+
+![image](https://github.com/user-attachments/assets/3a6d50fb-8bad-45ac-9fa5-8cfbe34dd047)
+
+Crea una contraseña aleatoria en base a los tipos de caracteres seleccionados.
+
+El método generateRandomPassword: 
+
+![image](https://github.com/user-attachments/assets/199f99f6-613a-4349-a827-a91c31dc9021)
+
+Se encarga de construir una cadena de caracteres permitidos y generar una contraseña de la longitud especificada.
+
+Evaluación de Seguridad de la Contraseña (updatePasswordSecurity):
+
+![image](https://github.com/user-attachments/assets/470140e9-87e4-47be-95ed-8ffa6887b8f6)
+
+Usa el método calculatePasswordSecurity: 
+
+![image](https://github.com/user-attachments/assets/9701fcc7-173d-472b-9f32-eaa1b1f60494)
+
+Para evaluar características como longitud, inclusión de mayúsculas, minúsculas, números y caracteres especiales.
+La seguridad se clasifica en "Baja", "Media" o "Fuerte" y se indica visualmente cambiando el color del texto de la etiqueta seguridadLabel.
