@@ -81,3 +81,14 @@ Usa el método calculatePasswordSecurity:
 
 Para evaluar características como longitud, inclusión de mayúsculas, minúsculas, números y caracteres especiales.
 La seguridad se clasifica en "Baja", "Media" o "Fuerte" y se indica visualmente cambiando el color del texto de la etiqueta seguridadLabel.
+
+## Ejemplo de Uso:
+
+El código incluye un método main para ejecutar la clase PasswordPanel de forma independiente. Al ejecutar el código, se abrirá un JFrame con el panel de contraseña y sus funcionalidades:
+
+![image](https://github.com/user-attachments/assets/ac82c3fe-05b5-4ce6-9ba3-29555356bb52)
+
+## Visualización del propio componente 
+
+![image](https://github.com/user-attachments/assets/83251725-d720-4af8-9175-91c0a38306c9)
+
